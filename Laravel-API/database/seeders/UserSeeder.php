@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::factory()
-            ->count(50)
+            ->count(20)
             ->hasTasks(2, [
                 'status' => 'in_progress',
             ])
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             ->create();
 
         User::factory()
-            ->count(20)
+            ->count(10)
             ->create();
     }
 }
