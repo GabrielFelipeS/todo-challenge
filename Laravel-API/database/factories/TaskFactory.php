@@ -16,13 +16,17 @@ class TaskFactory extends Factory
      */
     public function definition(): array
     {
+        $status = $this->faker->randomElement(['pending', 'canceled']);
+        $assigned_at = $this->faker->dateTimeBetween('-2 years', '+2 months');
+        $completed_at = ($status == 'pending') ?
+            $this->faker->dateTimeBetween($assigned_at, '+2 months') : null;
         return [
-            'title' => $this->faker->title(),
+            'title' => $this->faker->words(3, true),
             'description' => $this->faker->paragraph(),
-            'status' => $this->faker->randomElement(['pending', 'canceled']),
+            'status' => $status,
             'due_date' => $this->faker->dateTime(),
-            'assigned_at' => $this->faker->randomElement([null, $this->faker->dateTime()]),
-            'completed_at' => $this->faker->randomElement([null, $this->faker->dateTime()]),
+            'assigned_at' => $assigned_at,
+            'completed_at' => $completed_at,
         ];
     }
 }
