@@ -2,7 +2,7 @@ import './App.css'
 
 import { Router } from './router';
 import {AppProvider} from "./AppContext.tsx";
-import NavBar  from './components/navbar'
+import  NavBar  from './components/sideBar.tsx'
 
 function App() {
 
