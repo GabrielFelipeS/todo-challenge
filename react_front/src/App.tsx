@@ -1,16 +1,16 @@
 import './App.css'
 
 import { Router } from './router';
-import {AppProvider} from "./AppContext.tsx";
-import  NavBar  from './components/sideBar.tsx'
+import { TaskProvider } from "./context/TaskContext";
+import  { AsideContainer }  from './components/AsideContainer.tsx'
 
 function App() {
 
   return (
-     <AppProvider>
-         <NavBar/>
+     <TaskProvider>
+         <AsideContainer/>
          <Router />
-     </AppProvider>
+     </TaskProvider>
   );
 }
 
