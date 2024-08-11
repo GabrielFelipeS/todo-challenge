@@ -15,16 +15,12 @@ class UserSeeder extends Seeder
     {
         User::factory()
             ->count(20)
-            ->hasTasks(2, [
-                'status' => 'in_progress',
-            ])
+            ->hasTasks(2)
             ->create();
 
         User::factory()
             ->count(12)
-            ->hasTasks(4, [
-                'status' => 'completed',
-            ])
+            ->hasTasks(4)
             ->create();
 
         User::factory()
