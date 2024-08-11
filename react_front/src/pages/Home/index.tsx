@@ -2,6 +2,10 @@
 
 export default function Home() {
     return (
-        <div></div>
+        <>
+            <div className="m-5">
+                Hoje
+            </div>
+        </>
     )
 }

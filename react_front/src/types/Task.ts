@@ -7,6 +7,7 @@ export type Task = {
     description: string
     total_task_time: number
     status: Status
+    task_date: Date
     due_date: Date
     assigned_at: Date
     completed_at: Date

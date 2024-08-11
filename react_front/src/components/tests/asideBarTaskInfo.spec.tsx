@@ -6,7 +6,15 @@ import "@testing-library/jest-dom";
 import {TaskContext} from "../../context/TaskContext.tsx";
 import {mockTasks} from "./MockTasks.ts"
 import {Task} from "../../types/Task.ts";
-import {NEXT_SEVEN_TASKS_FILTER, TODAY_TASKS_FILTER, TOMORROW_TASKS_FILTER} from "../AsideBarMenu/PredicateFilters.ts";
+import {
+    ALL_TASKS_FILTER,
+    CANCELED_TASKS_FILTER,
+    COMPLETED_TASKS_FILTER,
+    NEXT_SEVEN_DAYS_TASKS_FILTER, PENDING_TASKS_FILTER,
+    PLANNED_TASKS_FILTER, THIS_WEEK_TASKS_FILTER,
+    TODAY_TASKS_FILTER,
+    TOMORROW_TASKS_FILTER
+} from "../AsideBarMenu/PredicateFilters.ts";
 
 const today = new Date();
 const mockSetTasks = jest.fn();
@@ -15,10 +23,11 @@ function createTask(overrides = {}): Task {
     const task: Task = {
         id: 1,
         user_id: 101,
-        title: 'Task 1',
-        description: 'Description for Task 1',
+        title: 'Mock Task',
+        description: 'Mock task description',
         status: 'pending',
         total_task_time: 120,
+        task_date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
         due_date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
         assigned_at: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
         completed_at: new Date(today.getFullYear(), today.getMonth(), today.getDate())
@@ -37,39 +46,141 @@ const renderComponent = (predicate: (task: Task) => boolean, mock = mockTasks) =
 
 describe("AsideBarTaskInfo component", () => {
     it('should pick up all tasks', () => {
-        renderComponent(task => task.id == task.id);
+        renderComponent(ALL_TASKS_FILTER);
 
         expect(screen.getByText("29")).toBeInTheDocument();
+        expect(screen.getByText("44h 45m")).toBeInTheDocument();
     })
 
     it('should pick up all tasks for today', () => {
-        renderComponent(TODAY_TASKS_FILTER);
+        renderComponent(TODAY_TASKS_FILTER,[
+            createTask(),
+            createTask({
+                task_date:
+                    new Date(today.getFullYear(), today.getMonth(), today.getDate() + 4),
+                status: 'canceled'
+            }),
+            createTask({
+                task_date:
+                    new Date(today.getFullYear(), today.getMonth(), today.getDate() + 4),
+                status: 'completed'
+            }),
+            createTask({
+                task_date:
+                    new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7)
+            })
+        ]);
 
-        expect(screen.getByText("5")).toBeInTheDocument();
-        expect(screen.getByText("8h 20m")).toBeInTheDocument();
+        expect(screen.getByText("1")).toBeInTheDocument();
+        expect(screen.getByText("2h 0m")).toBeInTheDocument();
     });
 
     it('should pick up all tasks for tomorrow', () => {
-        renderComponent(TOMORROW_TASKS_FILTER);
-
-        expect(screen.getByText("3")).toBeInTheDocument();
-        expect(screen.getByText("4h 10m")).toBeInTheDocument();
-    });
-
-    it('should only pick up the tasks for the next seven days', () => {
-        renderComponent(NEXT_SEVEN_TASKS_FILTER, [
+        renderComponent(TOMORROW_TASKS_FILTER,[
             createTask(),
             createTask({
-                due_date:
-                    new Date(today.getFullYear(), today.getMonth(), today.getDate() + 4)
+                task_date:
+                    new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1)
             }),
             createTask({
-                due_date:
+                task_date:
+                    new Date(today.getFullYear(), today.getMonth(), today.getDate() + 4),
+                status: 'canceled'
+            }),
+            createTask({
+                task_date:
+                    new Date(today.getFullYear(), today.getMonth(), today.getDate() + 4),
+                status: 'completed'
+            }),
+            createTask({
+                task_date:
+                    new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7)
+            })
+        ]);
+
+        expect(screen.getByText("1")).toBeInTheDocument();
+        expect(screen.getByText("2h 0m")).toBeInTheDocument();
+    });
+
+    it('should only pick up the tasks for this week', () => {
+        renderComponent(THIS_WEEK_TASKS_FILTER, [
+            createTask(),
+            createTask({
+                task_date:
+                    new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay())
+            }),
+            createTask({
+                task_date:
+                    new Date(today.getFullYear(), today.getMonth(), today.getDate() + 4),
+                status: 'canceled'
+            }),
+            createTask({
+                task_date:
+                    new Date(today.getFullYear(), today.getMonth(), today.getDate() + 4),
+                status: 'completed'
+            }),
+            createTask({
+                task_date:
                     new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7)
             })
         ])
 
         expect(screen.getByText("2")).toBeInTheDocument();
         expect(screen.getByText("4h 0m")).toBeInTheDocument();
+    });
+
+    it('should only pick up the tasks for the next seven days', () => {
+        renderComponent(NEXT_SEVEN_DAYS_TASKS_FILTER, [
+            createTask(),
+            createTask({
+                task_date:
+                    new Date(today.getFullYear(), today.getMonth(), today.getDate() + 4)
+            }),
+            createTask({
+                task_date:
+                    new Date(today.getFullYear(), today.getMonth(), today.getDate() + 4),
+                status: 'canceled'
+            }),
+            createTask({
+                task_date:
+                    new Date(today.getFullYear(), today.getMonth(), today.getDate() + 4),
+                status: 'completed'
+            }),
+            createTask({
+                task_date:
+                    new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7)
+            })
+        ])
+
+        expect(screen.getByText("2")).toBeInTheDocument();
+        expect(screen.getByText("4h 0m")).toBeInTheDocument();
+    });
+
+    it('should pick up all tasks that is planned', () => {
+        renderComponent(PLANNED_TASKS_FILTER);
+
+        expect(screen.getByText("22")).toBeInTheDocument();
+        expect(screen.getByText("32h 15m")).toBeInTheDocument();
+    });
+
+    it('should pick up all tasks that is completed', () => {
+        renderComponent(COMPLETED_TASKS_FILTER);
+
+        expect(screen.getByText("4")).toBeInTheDocument();
+        expect(screen.getByText("6h 45m")).toBeInTheDocument();
+    });
+
+    it('should pick up all tasks that is pending', () => {
+        renderComponent(PENDING_TASKS_FILTER);
+
+        expect(screen.getByText("17")).toBeInTheDocument();
+        expect(screen.getByText("26h 40m")).toBeInTheDocument();
+    });
+
+    it('should pick up all tasks that is canceled', () => {
+        renderComponent(CANCELED_TASKS_FILTER);
+
+        expect(screen.getByText("3")).toBeInTheDocument();
+        expect(screen.getByText("5h 45m")).toBeInTheDocument();
     });
 });

@@ -3,13 +3,20 @@ import './App.css'
 import { Router } from './router';
 import { TaskProvider } from "./context/TaskContext";
 import  { AsideContainer }  from './components/AsideContainer.tsx'
+import styled from "styled-components";
+
+
+const PageContent = styled.div.attrs({
+    className: 'flex'
+})``;
 
 function App() {
-
   return (
      <TaskProvider>
-         <AsideContainer/>
-         <Router />
+         <PageContent>
+             <AsideContainer/>
+             <Router/>
+         </PageContent>
      </TaskProvider>
   );
 }

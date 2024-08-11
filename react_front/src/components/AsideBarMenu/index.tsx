@@ -6,10 +6,9 @@ import {AsideBarList} from "./AsideBarList.tsx";
 import {
     ALL_TASKS_FILTER,
     COMPLETED_TASKS_FILTER,
-    NEXT_SEVEN_TASKS_FILTER,
+    NEXT_SEVEN_DAYS_TASKS_FILTER,
     PLANNED_TASKS_FILTER,
-    THIS_WEEK_TASKS_FILTER,
-    TODAY_TASKS_FILTER,
+    THIS_WEEK_TASKS_FILTER, TODAY_TASKS_FILTER,
     TOMORROW_TASKS_FILTER
 } from "./PredicateFilters.ts";
 
@@ -48,7 +47,7 @@ const AsideBarMenuNextSevenDays = () => {
         <AsideBarList endPoints={["/sevendays"]}>
             <AsideBarIcon path="/src/assets/7DaysIcon.png" alt="7 Days Icon icon"/>
             <AsideBarTitle title={"Próximos 7 Dias"}/>
-            <AsideBarTaskInfo predicate={NEXT_SEVEN_TASKS_FILTER}/>
+            <AsideBarTaskInfo predicate={NEXT_SEVEN_DAYS_TASKS_FILTER}/>
         </AsideBarList>
     );
 }

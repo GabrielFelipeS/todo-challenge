@@ -9,8 +9,7 @@ interface AsideBarProps {
 export function AsideBarTaskInfo({predicate}: AsideBarProps) {
     const tasks = useContext(TaskContext)?.tasks ?? []
     const filteredTasks = tasks.filter(predicate)
-    console.log(predicate)
-    filteredTasks.forEach(task => console.log(task))
+
     const totalTime =
         filteredTasks.map(task => task.total_task_time)
         .reduce(
