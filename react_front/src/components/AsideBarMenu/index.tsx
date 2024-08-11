@@ -3,22 +3,22 @@ import {AsideBarIcon} from "./AsideBarIcon.tsx";
 import {AsideBarTitle} from "./AsideBarTitle.tsx";
 import {AsideBarTaskInfo} from "./AsideBarTaskInfo.tsx";
 import {AsideBarList} from "./AsideBarList.tsx";
+import {
+    ALL_TASKS_FILTER,
+    COMPLETED_TASKS_FILTER,
+    NEXT_SEVEN_TASKS_FILTER,
+    PLANNED_TASKS_FILTER,
+    THIS_WEEK_TASKS_FILTER,
+    TODAY_TASKS_FILTER,
+    TOMORROW_TASKS_FILTER
+} from "./PredicateFilters.ts";
 
 const AsideBarMenuToday = () => {
     return (
         <AsideBarList endPoints={["/", "/today", "/home"]}>
             <AsideBarIcon path="/src/assets/todayIcon.png" alt="sun icon"/>
             <AsideBarTitle title={"Hoje"}/>
-            <AsideBarTaskInfo predicate={task => {
-                const today = new Date();
-                const taskDay = task.due_date;
-
-                return (task.status == 'pending' || task.status == 'in_progress') &&
-                    taskDay.getDate() == today.getDate() &&
-                    taskDay.getMonth() == today.getMonth() &&
-                    taskDay.getFullYear() == today.getFullYear();
-
-            }}/>
+            <AsideBarTaskInfo predicate={TODAY_TASKS_FILTER}/>
         </AsideBarList>
     )
 }
@@ -28,17 +28,7 @@ const AsideBarMenuTomorrow = () => {
         <AsideBarList endPoints={["/tomorrow"]}>
             <AsideBarIcon path="/src/assets/tomorrowIcon.png" alt="tomorrow icon"/>
             <AsideBarTitle title={"Amanhã"}/>
-            <AsideBarTaskInfo predicate={task => {
-                const today = new Date();
-                const taskDay = task.due_date;
-                const tomorrow = today.getDate() + 1;
-
-                return (task.status == 'pending' || task.status == 'in_progress') &&
-                    taskDay.getDate() == tomorrow &&
-                    taskDay.getMonth() == today.getMonth() &&
-                    taskDay.getFullYear() == today.getFullYear();
-
-            }}/>
+            <AsideBarTaskInfo predicate={TOMORROW_TASKS_FILTER}/>
         </AsideBarList>
     );
 }
@@ -48,20 +38,7 @@ const AsideBarMenuThisWeek = () => {
         <AsideBarList endPoints={["/calendar"]}>
             <AsideBarIcon path="/src/assets/calendarIcon.png" alt="calendar icon"/>
             <AsideBarTitle title={"Esta Semana"}/>
-            <AsideBarTaskInfo predicate={task => {
-                const todayDate = new Date();
-                const taskDay = task.due_date;
-
-                const firtsDayOfWeek = todayDate.getDate() - todayDate.getDay();
-                const lastDayOfWeek = firtsDayOfWeek + 6
-
-                return (task.status == 'pending' || task.status == 'in_progress') &&
-                    taskDay.getDate() >= firtsDayOfWeek &&
-                    taskDay.getDate() <= lastDayOfWeek &&
-                    taskDay.getMonth() == todayDate.getMonth() &&
-                    taskDay.getFullYear() == todayDate.getFullYear();
-
-            }}/>
+            <AsideBarTaskInfo predicate={THIS_WEEK_TASKS_FILTER}/>
         </AsideBarList>
     );
 }
@@ -71,19 +48,7 @@ const AsideBarMenuNextSevenDays = () => {
         <AsideBarList endPoints={["/sevendays"]}>
             <AsideBarIcon path="/src/assets/7DaysIcon.png" alt="7 Days Icon icon"/>
             <AsideBarTitle title={"Próximos 7 Dias"}/>
-            <AsideBarTaskInfo predicate={task => {
-                const todayDate = new Date();
-                const taskDay = task.due_date;
-
-                const today = todayDate.getDate();
-                const next7Days = today + 7;
-
-                return (task.status == 'pending' || task.status == 'in_progress') &&
-                    taskDay.getDate() > today &&
-                    taskDay.getDate() <= next7Days &&
-                    taskDay.getMonth() == todayDate.getMonth() &&
-                    taskDay.getFullYear() == todayDate.getFullYear();
-            }}/>
+            <AsideBarTaskInfo predicate={NEXT_SEVEN_TASKS_FILTER}/>
         </AsideBarList>
     );
 }
@@ -93,15 +58,7 @@ const AsideBarMenuPlanned = () => {
         <AsideBarList endPoints={["/planned"]}>
             <AsideBarIcon path="/src/assets/plannedIcon.png" alt="Planned Icon icon"/>
             <AsideBarTitle title={"Planejado"}/>
-            <AsideBarTaskInfo predicate={task => {
-                const todayDate = new Date();
-                const taskDate = task.due_date;
-
-                const monthCurrent = todayDate.getMonth();
-
-                return (task.status == 'pending' || task.status == 'in_progress') &&
-                    taskDate.getMonth() >= monthCurrent;
-            }}/>
+            <AsideBarTaskInfo predicate={PLANNED_TASKS_FILTER}/>
         </AsideBarList>
     );
 }
@@ -111,7 +68,7 @@ const AsideBarMenuCompleted = () => {
         <AsideBarList endPoints={["/concluded"]}>
             <AsideBarIcon path="/src/assets/concludedIcon.png" alt="concluded Icon icon"/>
             <AsideBarTitle title={"Concluido"}/>
-            <AsideBarTaskInfo predicate={task => task.status == "completed"}/>
+            <AsideBarTaskInfo predicate={COMPLETED_TASKS_FILTER}/>
         </AsideBarList>
     );
 }
@@ -121,7 +78,7 @@ const AsideBarMenuTasks = () => {
         <AsideBarList endPoints={["/tasklist"]}>
             <AsideBarIcon path="/src/assets/TasksIcon.png" alt="task list Icon icon"/>
             <AsideBarTitle title={"Tarefas"}/>
-            <AsideBarTaskInfo predicate={task => task.id == task.id}/>
+            <AsideBarTaskInfo predicate={ALL_TASKS_FILTER}/>
         </AsideBarList>
     );
 }

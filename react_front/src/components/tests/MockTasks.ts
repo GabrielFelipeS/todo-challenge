@@ -1,5 +1,17 @@
 import {Task} from "../../types/Task.ts";
 
+const today = new Date();
+
+const firstDayOfWeek = today.getDate() - today.getDay()
+const lastDayOfWeek = today.getDate() - today.getDay() + 6
+
+const firstDayOfNextWeek = today.getDate() - today.getDay() + 7
+const lastDayOfNextWeek = today.getDate() - today.getDay() + 13
+
+console.log(lastDayOfWeek)
+console.log(firstDayOfNextWeek)
+console.log(lastDayOfNextWeek)
+
 export const mockTasks: Task[] = [
     {
         id: 1,
@@ -8,9 +20,9 @@ export const mockTasks: Task[] = [
         description: 'Description for Task 1',
         total_task_time: 120,
         status: 'pending',
-        due_date: new Date('2024-08-08T10:00:00'),
-        assigned_at: new Date('2024-08-01T09:00:00'),
-        completed_at: new Date('2024-08-15T12:00:00')
+        due_date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        assigned_at: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
     },
     {
         id: 2,
@@ -19,9 +31,9 @@ export const mockTasks: Task[] = [
         description: 'Description for Task 2',
         total_task_time: 90,
         status: 'in_progress',
-        due_date: new Date('2024-08-08T10:00:00'),
-        assigned_at: new Date('2024-08-05T11:00:00'),
-        completed_at: new Date('2024-08-20T15:30:00')
+        due_date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        assigned_at: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
     },
     {
         id: 3,
@@ -30,9 +42,9 @@ export const mockTasks: Task[] = [
         description: 'Description for Task 3',
         total_task_time: 60,
         status: 'completed',
-        due_date: new Date('2024-08-09T16:00:00'),
-        assigned_at: new Date('2024-08-9T13:00:00'),
-        completed_at: new Date('2024-08-10T17:00:00')
+        due_date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        assigned_at: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
     },
     {
         id: 4,
@@ -41,9 +53,9 @@ export const mockTasks: Task[] = [
         description: 'Description for Task 4',
         total_task_time: 45,
         status: 'canceled',
-        due_date: new Date('2024-08-15T09:00:00'),
-        assigned_at: new Date('2024-08-10T08:00:00'),
-        completed_at: new Date('2024-08-25T09:45:00')
+        due_date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        assigned_at: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
     },
     {
         id: 5,
@@ -52,9 +64,9 @@ export const mockTasks: Task[] = [
         description: 'Description for Task 5',
         total_task_time: 150,
         status: 'pending',
-        due_date: new Date('2024-08-09T11:00:00'),
-        assigned_at: new Date('2024-08-15T10:00:00'),
-        completed_at: new Date('2024-09-01T13:30:00')
+        due_date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        assigned_at: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
     },
     {
         id: 6,
@@ -63,9 +75,9 @@ export const mockTasks: Task[] = [
         description: 'Description for Task 6',
         total_task_time: 30,
         status: 'in_progress',
-        due_date: new Date('2024-08-18T15:00:00'),
-        assigned_at: new Date('2024-08-05T14:00:00'),
-        completed_at: new Date('2024-08-18T15:30:00')
+        due_date: new Date(today.getFullYear(), today.getMonth(),  today.getDate()),
+        assigned_at: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
     },
     {
         id: 7,
@@ -74,9 +86,9 @@ export const mockTasks: Task[] = [
         description: 'Description for Task 7',
         total_task_time: 75,
         status: 'completed',
-        due_date: new Date('2024-09-12T13:00:00'),
-        assigned_at: new Date('2024-08-01T12:00:00'),
-        completed_at: new Date('2024-08-12T14:15:00')
+        due_date:  new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
     },
     {
         id: 8,
@@ -85,9 +97,9 @@ export const mockTasks: Task[] = [
         description: 'Description for Task 8',
         total_task_time: 200,
         status: 'canceled',
-        due_date: new Date('2024-08-30T17:00:00'),
-        assigned_at: new Date('2024-08-10T16:00:00'),
-        completed_at: new Date('2024-08-30T17:00:00')
+        due_date:  new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        completed_at:  new Date(today.getFullYear(), today.getMonth(), today.getDate()),
     },
     {
         id: 9,
@@ -96,9 +108,9 @@ export const mockTasks: Task[] = [
         description: 'Description for Task 9',
         total_task_time: 110,
         status: 'pending',
-        due_date: new Date('2024-09-05T10:00:00'),
-        assigned_at: new Date('2024-08-20T09:00:00'),
-        completed_at: new Date('2024-09-05T11:50:00')
+        due_date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
     },
     {
         id: 10,
@@ -107,9 +119,9 @@ export const mockTasks: Task[] = [
         description: 'Description for Task 10',
         total_task_time: 95,
         status: 'in_progress',
-        due_date: new Date('2024-08-22T14:00:00'),
-        assigned_at: new Date('2024-08-05T13:00:00'),
-        completed_at: new Date('2024-08-22T15:35:00')
+        due_date:  new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
+        completed_at:  new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
     },
     {
         id: 11,
@@ -118,9 +130,9 @@ export const mockTasks: Task[] = [
         description: 'Description for Task 11',
         total_task_time: 80,
         status: 'pending',
-        due_date: new Date('2024-08-25T10:00:00'),
-        assigned_at: new Date('2024-08-10T09:00:00'),
-        completed_at: new Date('2024-08-25T11:20:00')
+        due_date:  new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
+        assigned_at: new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
     },
     {
         id: 12,
@@ -129,9 +141,9 @@ export const mockTasks: Task[] = [
         description: 'Description for Task 12',
         total_task_time: 140,
         status: 'completed',
-        due_date: new Date('2024-08-28T12:00:00'),
-        assigned_at: new Date('2024-08-01T11:00:00'),
-        completed_at: new Date('2024-08-28T14:20:00')
+        due_date: new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
+        assigned_at: new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
     },
     {
         id: 13,
@@ -140,9 +152,9 @@ export const mockTasks: Task[] = [
         description: 'Description for Task 13',
         total_task_time: 50,
         status: 'in_progress',
-        due_date: new Date('2024-08-30T15:00:00'),
-        assigned_at: new Date('2024-08-05T14:00:00'),
-        completed_at: new Date('2024-08-30T16:10:00')
+        due_date: new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
+        assigned_at: new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
     },
     {
         id: 14,
@@ -151,9 +163,9 @@ export const mockTasks: Task[] = [
         description: 'Description for Task 14',
         total_task_time: 100,
         status: 'canceled',
-        due_date: new Date('2024-09-01T16:00:00'),
-        assigned_at: new Date('2024-08-10T15:00:00'),
-        completed_at: new Date('2024-09-01T17:40:00')
+        due_date: new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
+        assigned_at: new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
     },
     {
         id: 15,
@@ -162,9 +174,9 @@ export const mockTasks: Task[] = [
         description: 'Description for Task 15',
         total_task_time: 60,
         status: 'pending',
-        due_date: new Date('2024-09-05T11:00:00'),
-        assigned_at: new Date('2024-08-20T10:00:00'),
-        completed_at: new Date('2024-09-05T12:00:00')
+        due_date: new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
+        assigned_at: new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), firstDayOfWeek),
     },
     {
         id: 16,
@@ -173,9 +185,9 @@ export const mockTasks: Task[] = [
         description: 'Description for Task 16',
         total_task_time: 130,
         status: 'completed',
-        due_date: new Date('2024-09-10T13:00:00'),
-        assigned_at: new Date('2024-09-01T12:00:00'),
-        completed_at: new Date('2024-09-10T15:10:00')
+        due_date: new Date(today.getFullYear(), today.getMonth(), firstDayOfNextWeek),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth(), firstDayOfNextWeek),
+        completed_at:  new Date(today.getFullYear(), today.getMonth(), firstDayOfNextWeek),
     },
     {
         id: 17,
@@ -184,19 +196,140 @@ export const mockTasks: Task[] = [
         description: 'Description for Task 17',
         total_task_time: 70,
         status: 'in_progress',
-        due_date: new Date('2024-09-15T14:00:00'),
-        assigned_at: new Date('2024-09-05T13:00:00'),
-        completed_at: new Date('2024-09-15T15:10:00')
+        due_date:  new Date(today.getFullYear(), today.getMonth(), firstDayOfNextWeek),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth(), firstDayOfNextWeek),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), firstDayOfNextWeek),
     },
     {
-        id: 18,
-        user_id: 118,
-        title: 'Task 18',
-        description: 'Description for Task 18',
+        id: 19,
+        user_id: 119,
+        title: 'Task 19',
+        description: 'Description for Task 19',
         total_task_time: 90,
-        status: 'canceled',
-        due_date: new Date('2024-09-20T15:00:00'),
-        assigned_at: new Date('2024-09-10T14:00:00'),
-        completed_at: new Date('2024-09-20T16:30:00')
+        status: 'pending',
+        due_date:  new Date(today.getFullYear(), today.getMonth(), firstDayOfNextWeek),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth(), firstDayOfNextWeek),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), firstDayOfNextWeek),
+    },
+    {
+        id: 20,
+        user_id: 120,
+        title: 'Task 20',
+        description: 'Description for Task 20',
+        total_task_time: 90,
+        status: 'pending',
+        due_date:  new Date(today.getFullYear(), today.getMonth(), firstDayOfNextWeek),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth(), firstDayOfNextWeek),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), firstDayOfNextWeek),
+    },
+    {
+        id: 21,
+        user_id: 121,
+        title: 'Task 21',
+        description: 'Description for Task 21',
+        total_task_time: 90,
+        status: 'pending',
+        due_date:  new Date(today.getFullYear(), today.getMonth(), lastDayOfNextWeek),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth(), lastDayOfNextWeek),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), lastDayOfNextWeek),
+    },
+    {
+        id: 22,
+        user_id: 122,
+        title: 'Task 22',
+        description: 'Description for Task 22',
+        total_task_time: 90,
+        status: 'pending',
+        due_date:  new Date(today.getFullYear(), today.getMonth(), lastDayOfNextWeek),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth(), lastDayOfNextWeek),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), lastDayOfNextWeek),
+    },
+    {
+        id: 23,
+        user_id: 123,
+        title: 'Task 23',
+        description: 'Description for Task 23',
+        total_task_time: 90,
+        status: 'pending',
+        due_date:  new Date(today.getFullYear(), today.getMonth(), lastDayOfNextWeek),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth(), lastDayOfNextWeek),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), lastDayOfNextWeek),
+    },
+    {
+        id: 24,
+        user_id: 124,
+        title: 'Task 24',
+        description: 'Description for Task 24',
+        total_task_time: 90,
+        status: 'pending',
+        due_date:  new Date(today.getFullYear(), today.getMonth(), lastDayOfNextWeek),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth(), lastDayOfNextWeek),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), lastDayOfNextWeek),
+    },
+    {
+        id: 25,
+        user_id: 125,
+        title: 'Task 25',
+        description: 'Description for Task 25',
+        total_task_time: 90,
+        status: 'pending',
+        due_date:  new Date(today.getFullYear(), today.getMonth(), lastDayOfNextWeek),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth(), lastDayOfNextWeek),
+        completed_at: new Date(today.getFullYear(), today.getMonth(), lastDayOfNextWeek),
+    },
+    {
+        id: 26,
+        user_id: 126,
+        title: 'Task 26',
+        description: 'Description for Task 26',
+        total_task_time: 90,
+        status: 'pending',
+        due_date:  new Date(today.getFullYear(), today.getMonth() + 1, 1),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth() + 1, 1),
+        completed_at: new Date(today.getFullYear(), today.getMonth()+ 1, 1),
+    },
+    {
+        id: 27,
+        user_id: 127,
+        title: 'Task 27',
+        description: 'Description for Task 27',
+        total_task_time: 90,
+        status: 'pending',
+        due_date:  new Date(today.getFullYear(), today.getMonth() + 1, 1),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth() + 1, 1),
+        completed_at: new Date(today.getFullYear(), today.getMonth() + 1, 1),
+    },
+    {
+        id: 28,
+        user_id: 128,
+        title: 'Task 28',
+        description: 'Description for Task 28',
+        total_task_time: 90,
+        status: 'pending',
+        due_date:  new Date(today.getFullYear(), today.getMonth() + 2, 1),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth() + 2, 1),
+        completed_at: new Date(today.getFullYear(), today.getMonth() + 2, 1),
+    },
+    {
+        id: 29,
+        user_id: 129,
+        title: 'Task 29',
+        description: 'Description for Task 29',
+        total_task_time: 90,
+        status: 'pending',
+        due_date:  new Date(today.getFullYear(), today.getMonth() + 2, 1),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth() + 2, 1),
+        completed_at: new Date(today.getFullYear(), today.getMonth() + 2, 1),
+    },
+    {
+        id: 30,
+        user_id: 130,
+        title: 'Task 30',
+        description: 'Description for Task 30',
+        total_task_time: 90,
+        status: 'pending',
+        due_date:  new Date(today.getFullYear(), today.getMonth() + 2, 1),
+        assigned_at:  new Date(today.getFullYear(), today.getMonth()+ 2, 1),
+        completed_at: new Date(today.getFullYear(), today.getMonth()+ 2, 1),
     }
 ]
