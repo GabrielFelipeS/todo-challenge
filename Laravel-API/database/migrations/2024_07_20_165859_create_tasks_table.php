@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->enum('status', ['pending', 'in_progress', 'completed', 'canceled'])->default('pending');
-            $table->dateTime('due_date')->nullable();
+            $table->dateTime('task_date')->nullable();
             $table->dateTime('assigned_at')->nullable();
             $table->dateTime('completed_at')->nullable();
             $table->softDeletes();
