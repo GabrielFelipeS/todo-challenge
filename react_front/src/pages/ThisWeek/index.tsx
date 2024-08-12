@@ -1,6 +1,6 @@
 
 
-export default function Home() {
+export default function ThisWeek() {
     return (
         <>
             <div className="m-5">

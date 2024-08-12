@@ -1,6 +1,4 @@
-
-
-export default function Home() {
+export default function AllTasks() {
     return (
         <>
             <div className="m-5">

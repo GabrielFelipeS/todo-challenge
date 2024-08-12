@@ -1,11 +1,11 @@
-import {AsideBarTaskInfo} from "../AsideBarMenu/AsideBarTaskInfo.tsx";
+import {AsideBarTaskInfo} from "../AsideBarMenu/AsideBarTaskInfo";
 import {render, screen} from "@testing-library/react"
 
 import "@testing-library/jest-dom";
 
-import {TaskContext} from "../../context/TaskContext.tsx";
-import {mockTasks} from "./MockTasks.ts"
-import {Task} from "../../types/Task.ts";
+import {TaskContext} from "../../context/TaskContext";
+import {mockTasks} from "./MockTasks"
+import {Task} from "../../types/Task";
 import {
     ALL_TASKS_FILTER,
     CANCELED_TASKS_FILTER,
@@ -14,7 +14,7 @@ import {
     PLANNED_TASKS_FILTER, THIS_WEEK_TASKS_FILTER,
     TODAY_TASKS_FILTER,
     TOMORROW_TASKS_FILTER
-} from "../AsideBarMenu/PredicateFilters.ts";
+} from "../AsideBarMenu/PredicateFilters";
 
 const today = new Date();
 const mockSetTasks = jest.fn();

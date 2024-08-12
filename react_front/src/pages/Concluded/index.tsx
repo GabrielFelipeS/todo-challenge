@@ -1,6 +1,4 @@
-
-
-export default function Home() {
+export default function Concluded() {
     return (
         <>
             <div className="m-5">

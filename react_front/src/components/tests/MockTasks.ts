@@ -1,4 +1,4 @@
-import {Task} from "../../types/Task.ts";
+import {Task} from "../../types/Task";
 
 const today = new Date();
 

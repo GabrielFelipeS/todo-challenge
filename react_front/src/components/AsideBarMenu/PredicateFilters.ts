@@ -1,4 +1,4 @@
-import {Task} from "../../types/Task.ts";
+import {Task} from "../../types/Task";
 
 export const ALL_TASKS_FILTER = (task: Task) => task.id == task.id
 

@@ -1,6 +1,6 @@
 
 
-export default function Home() {
+export default function Tomorrow() {
     return (
         <>
             <div className="m-5">

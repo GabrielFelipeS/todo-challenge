@@ -1,6 +1,6 @@
 
 
-export default function Home() {
+export default function Planned() {
     return (
         <>
             <div className="m-5">

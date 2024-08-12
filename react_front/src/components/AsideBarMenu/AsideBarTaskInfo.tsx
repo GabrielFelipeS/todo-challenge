@@ -1,6 +1,6 @@
-import {Task} from "../../types/Task.ts";
+import {Task} from "../../types/Task";
 import {useContext} from "react";
-import {TaskContext} from "../../context/TaskContext.tsx";
+import {TaskContext} from "../../context/TaskContext";
 
 interface AsideBarProps {
     predicate: (task: Task) => boolean;

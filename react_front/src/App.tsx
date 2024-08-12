@@ -2,7 +2,7 @@ import './App.css'
 
 import { Router } from './router';
 import { TaskProvider } from "./context/TaskContext";
-import  { AsideContainer }  from './components/AsideContainer.tsx'
+import  { AsideContainer }  from './components/AsideContainer'
 import styled from "styled-components";
 
 

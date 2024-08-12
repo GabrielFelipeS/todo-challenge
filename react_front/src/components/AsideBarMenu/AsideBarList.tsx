@@ -1,5 +1,5 @@
 import {ReactNode} from "react";
-import {disapleAllSelectedInUl} from "./AsideBarRoot.tsx";
+import {disapleAllSelectedInUl} from "./AsideBarRoot";
 
 interface AsideBarProps {
     endPoints: string[],

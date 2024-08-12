@@ -1,8 +1,8 @@
-import {AsideBarRoot} from "./AsideBarRoot.tsx";
-import {AsideBarIcon} from "./AsideBarIcon.tsx";
-import {AsideBarTitle} from "./AsideBarTitle.tsx";
-import {AsideBarTaskInfo} from "./AsideBarTaskInfo.tsx";
-import {AsideBarList} from "./AsideBarList.tsx";
+import {AsideBarRoot} from "./AsideBarRoot";
+import {AsideBarIcon} from "./AsideBarIcon";
+import {AsideBarTitle} from "./AsideBarTitle";
+import {AsideBarTaskInfo} from "./AsideBarTaskInfo";
+import {AsideBarList} from "./AsideBarList";
 
 import todayIcon from "/src/assets/todayIcon.png"
 import tomorrowIcon from "/src/assets/tomorrowIcon.png";
@@ -19,7 +19,7 @@ import {
     PLANNED_TASKS_FILTER,
     THIS_WEEK_TASKS_FILTER, TODAY_TASKS_FILTER,
     TOMORROW_TASKS_FILTER
-} from "./PredicateFilters.ts";
+} from "./PredicateFilters";
 
 const AsideBarMenuToday = () => {
     return (

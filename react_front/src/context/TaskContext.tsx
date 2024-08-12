@@ -1,7 +1,7 @@
 import {createContext, ReactNode, useState} from 'react';
-import {Task} from "../types/Task.ts";
+import {Task} from "../types/Task";
 
-import {mockTasks} from "../components/tests/MockTasks.ts"
+import {mockTasks} from "../components/tests/MockTasks"
 
 interface AppProviderProps {
     children: ReactNode;
