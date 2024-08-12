@@ -1,0 +1,13 @@
+services:
+  front:
+    build: 
+      context: ./react_front/
+    container_name: react_front
+    ports:
+      - "80:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
