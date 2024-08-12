@@ -4,6 +4,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontSize: {
+        'teen': '0.6255rem', // Adiciona um novo tamanho de texto
+      },
       colors: {
         ligth: {
           // Cores para texto
@@ -37,7 +40,7 @@ export default {
 
           // Cor de fundo dos containers
           container: '#090809',
-          selected: '#0E0E0E',
+          selected: '#1D1D1D',
 
           detail: '#121012',
           // Bordas

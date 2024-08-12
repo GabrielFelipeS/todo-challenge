@@ -23,5 +23,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": [
+    "src/**/*",
+    "node_modules/ts-jest/globals.d.ts"
+  ]
 }
