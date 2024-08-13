@@ -13,7 +13,7 @@ import concludedIcon from "/src/assets/concludedIcon.png"
 import tasksIcon from "/src/assets/TasksIcon.png";
 
 import {
-    ALL_TASKS_FILTER, ALL_TASKS_FILTER_PENDING_OR_IN_PROGRESS,
+    ALL_TASKS_FILTER_PENDING_OR_IN_PROGRESS,
     COMPLETED_TASKS_FILTER,
     NEXT_SEVEN_DAYS_TASKS_FILTER_PENDING_OR_IN_PROGRESS,
     PLANNED_TASKS_FILTER_PENDING_OR_IN_PROGRESS,
