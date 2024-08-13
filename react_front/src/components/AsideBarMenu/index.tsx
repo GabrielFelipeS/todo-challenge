@@ -24,7 +24,7 @@ import {
 
 const AsideBarMenuToday = () => {
     return (
-        <AsideBarList endPoints={["/today", "/", "/home"]}>
+        <AsideBarList endPoints={["/today", "/"]}>
             <AsideBarIcon path={todayIcon} alt="sun icon"/>
             <AsideBarTitle title={"Hoje"}/>
             <AsideBarTaskInfo predicate={TODAY_TASKS_FILTER_PENDING_OR_IN_PROGRESS}/>

@@ -2,7 +2,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import ChangeColorPage from "./pages/ChangeColorPageTest";
-import Home from "./pages/Today"
+import Today from "./pages/Today"
 import Tomorrow from "./pages/Tomorrow"
 import ThisWeek from "./pages/ThisWeek"
 import SevenDays from "./pages/SevenDays"
@@ -15,9 +15,8 @@ export function Router() {
   return (
    <BrowserRouter>
      <Routes>
-         <Route path="/" element={<Home/>}/>
-         <Route path="/home" element={<Home/>}/>
-         <Route path="/today" element={<Home/>}/>
+         <Route path="/" element={<Today/>}/>
+         <Route path="/today" element={<Today/>}/>
          <Route path="/tomorrow" element={<Tomorrow/>}/>
          <Route path="/thisweek" element={<ThisWeek/>}/>
          <Route path="/sevendays" element={<SevenDays/>}/>
