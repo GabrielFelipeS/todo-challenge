@@ -8,10 +8,6 @@ const lastDayOfWeek = today.getDate() - today.getDay() + 6
 const firstDayOfNextWeek = today.getDate() - today.getDay() + 7
 const lastDayOfNextWeek = today.getDate() - today.getDay() + 13
 
-console.log(lastDayOfWeek)
-console.log(firstDayOfNextWeek)
-console.log(lastDayOfNextWeek)
-
 export const mockTasks: Task[] = [
     {
         id: 1,
