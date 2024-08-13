@@ -23,8 +23,8 @@ export  function AsideContainer() {
                   <AsideBarMenu.ThisWeek/>
                   <AsideBarMenu.NextSevenDays/>
                   <AsideBarMenu.Planned/>
-                  <AsideBarMenu.Completed/>
                   <AsideBarMenu.Tasks/>
+                  <AsideBarMenu.Completed/>
               </AsideBarMenu.Root>
            </Container>
        </Aside>

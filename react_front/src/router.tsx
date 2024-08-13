@@ -2,7 +2,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import ChangeColorPage from "./pages/ChangeColorPageTest";
-import Home from "./pages/Home"
+import Home from "./pages/Today"
 import Tomorrow from "./pages/Tomorrow"
 import ThisWeek from "./pages/ThisWeek"
 import SevenDays from "./pages/SevenDays"

@@ -13,20 +13,21 @@ import concludedIcon from "/src/assets/concludedIcon.png"
 import tasksIcon from "/src/assets/TasksIcon.png";
 
 import {
-    ALL_TASKS_FILTER,
+    ALL_TASKS_FILTER, ALL_TASKS_FILTER_PENDING_OR_IN_PROGRESS,
     COMPLETED_TASKS_FILTER,
-    NEXT_SEVEN_DAYS_TASKS_FILTER,
-    PLANNED_TASKS_FILTER,
-    THIS_WEEK_TASKS_FILTER, TODAY_TASKS_FILTER,
-    TOMORROW_TASKS_FILTER
+    NEXT_SEVEN_DAYS_TASKS_FILTER_PENDING_OR_IN_PROGRESS,
+    PLANNED_TASKS_FILTER_PENDING_OR_IN_PROGRESS,
+    THIS_WEEK_TASKS_FILTER_PENDING_OR_IN_PROGRESS,
+    TODAY_TASKS_FILTER_PENDING_OR_IN_PROGRESS,
+    TOMORROW_TASKS_FILTER_PENDING_OR_IN_PROGRESS
 } from "./PredicateFilters";
 
 const AsideBarMenuToday = () => {
     return (
-        <AsideBarList endPoints={["/", "/today", "/home"]}>
+        <AsideBarList endPoints={["/today", "/", "/home"]}>
             <AsideBarIcon path={todayIcon} alt="sun icon"/>
             <AsideBarTitle title={"Hoje"}/>
-            <AsideBarTaskInfo predicate={TODAY_TASKS_FILTER}/>
+            <AsideBarTaskInfo predicate={TODAY_TASKS_FILTER_PENDING_OR_IN_PROGRESS}/>
         </AsideBarList>
     )
 }
@@ -36,7 +37,7 @@ const AsideBarMenuTomorrow = () => {
         <AsideBarList endPoints={["/tomorrow"]}>
             <AsideBarIcon path={tomorrowIcon} alt="tomorrow icon"/>
             <AsideBarTitle title={"Amanhã"}/>
-            <AsideBarTaskInfo predicate={TOMORROW_TASKS_FILTER}/>
+            <AsideBarTaskInfo predicate={TOMORROW_TASKS_FILTER_PENDING_OR_IN_PROGRESS}/>
         </AsideBarList>
     );
 }
@@ -46,7 +47,7 @@ const AsideBarMenuThisWeek = () => {
         <AsideBarList endPoints={["/thisweek"]}>
             <AsideBarIcon path={thisWeekIcon} alt="calendar icon"/>
             <AsideBarTitle title={"Esta Semana"}/>
-            <AsideBarTaskInfo predicate={THIS_WEEK_TASKS_FILTER}/>
+            <AsideBarTaskInfo predicate={THIS_WEEK_TASKS_FILTER_PENDING_OR_IN_PROGRESS}/>
         </AsideBarList>
     );
 }
@@ -56,7 +57,7 @@ const AsideBarMenuNextSevenDays = () => {
         <AsideBarList endPoints={["/sevendays"]}>
             <AsideBarIcon path={sevenDaysIcon} alt="7 Days Icon icon"/>
             <AsideBarTitle title={"Próximos 7 Dias"}/>
-            <AsideBarTaskInfo predicate={NEXT_SEVEN_DAYS_TASKS_FILTER}/>
+            <AsideBarTaskInfo predicate={NEXT_SEVEN_DAYS_TASKS_FILTER_PENDING_OR_IN_PROGRESS}/>
         </AsideBarList>
     );
 }
@@ -66,7 +67,7 @@ const AsideBarMenuPlanned = () => {
         <AsideBarList endPoints={["/planned"]}>
             <AsideBarIcon path={plannedIcon} alt="Planned Icon icon"/>
             <AsideBarTitle title={"Planejado"}/>
-            <AsideBarTaskInfo predicate={PLANNED_TASKS_FILTER}/>
+            <AsideBarTaskInfo predicate={PLANNED_TASKS_FILTER_PENDING_OR_IN_PROGRESS}/>
         </AsideBarList>
     );
 }
@@ -86,7 +87,7 @@ const AsideBarMenuTasks = () => {
         <AsideBarList endPoints={["/tasklist"]}>
             <AsideBarIcon path={tasksIcon} alt="task list Icon icon"/>
             <AsideBarTitle title={"Tarefas"}/>
-            <AsideBarTaskInfo predicate={ALL_TASKS_FILTER}/>
+            <AsideBarTaskInfo predicate={ALL_TASKS_FILTER_PENDING_OR_IN_PROGRESS}/>
         </AsideBarList>
     );
 }
