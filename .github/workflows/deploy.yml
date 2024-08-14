@@ -28,6 +28,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: react_front/package-lock.json
         
     - name: Installs dependencies
       run: |
