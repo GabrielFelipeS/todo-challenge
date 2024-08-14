@@ -21,7 +21,7 @@ jobs:
 
     steps:
     - name: Move to react_front
-      run: cd react_front
+      run: cd react_front/
     
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
@@ -39,7 +39,7 @@ jobs:
       run: npm test
       
     - name: Move to root path
-      run: cd
+      run: cd ..
       
     - name: Checkout repository
       uses: actions/checkout@v4
