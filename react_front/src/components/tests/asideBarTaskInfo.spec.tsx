@@ -10,8 +10,13 @@ import {
     ALL_TASKS_FILTER,
     CANCELED_TASKS_FILTER,
     COMPLETED_TASKS_FILTER,
-    NEXT_SEVEN_DAYS_TASKS_FILTER, PENDING_TASKS_FILTER,
-    PLANNED_TASKS_FILTER, THIS_WEEK_TASKS_FILTER,
+    NEXT_SEVEN_DAYS_TASKS_FILTER,
+    NEXT_SEVEN_DAYS_TASKS_FILTER_PENDING_OR_IN_PROGRESS,
+    PENDING_TASKS_FILTER,
+    PLANNED_TASKS_FILTER,
+    PLANNED_TASKS_FILTER_PENDING_OR_IN_PROGRESS,
+    THIS_WEEK_TASKS_FILTER,
+    THIS_WEEK_TASKS_FILTER_PENDING_OR_IN_PROGRESS,
     TODAY_TASKS_FILTER,
     TOMORROW_TASKS_FILTER
 } from "../AsideBarMenu/PredicateFilters";
@@ -103,7 +108,7 @@ describe("AsideBarTaskInfo component", () => {
     });
 
     it('should only pick up the tasks for this week', () => {
-        renderComponent(THIS_WEEK_TASKS_FILTER, [
+        renderComponent(THIS_WEEK_TASKS_FILTER_PENDING_OR_IN_PROGRESS, [
             createTask(),
             createTask({
                 task_date:
@@ -130,7 +135,7 @@ describe("AsideBarTaskInfo component", () => {
     });
 
     it('should only pick up the tasks for the next seven days', () => {
-        renderComponent(NEXT_SEVEN_DAYS_TASKS_FILTER, [
+        renderComponent(NEXT_SEVEN_DAYS_TASKS_FILTER_PENDING_OR_IN_PROGRESS, [
             createTask(),
             createTask({
                 task_date:
@@ -157,7 +162,7 @@ describe("AsideBarTaskInfo component", () => {
     });
 
     it('should pick up all tasks that is planned', () => {
-        renderComponent(PLANNED_TASKS_FILTER);
+        renderComponent(PLANNED_TASKS_FILTER_PENDING_OR_IN_PROGRESS);
 
         expect(screen.getByText("22")).toBeInTheDocument();
         expect(screen.getByText("32h 15m")).toBeInTheDocument();
