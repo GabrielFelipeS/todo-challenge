@@ -20,8 +20,8 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+    - name: Move to react_front
+      run: cd react_front
     
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
@@ -37,6 +37,12 @@ jobs:
 
     - name: Run tests
       run: npm test
+      
+    - name: Move to root path
+      run: cd
+      
+    - name: Checkout repository
+      uses: actions/checkout@v4
     
   deploy:
       runs-on: ubuntu-latest
