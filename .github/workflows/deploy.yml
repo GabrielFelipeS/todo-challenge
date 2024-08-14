@@ -60,6 +60,4 @@ jobs:
           script: |
             cd ${{ secrets.APP_PATH }}
             git pull origin main
-            npm install --prefix ./react_front
-            npm run build --prefix ./react_front
             docker-compose up --build
