@@ -1,7 +1,20 @@
+FROM node:20 AS build
+
+WORKDIR /app
+
+COPY ./package*.json ./
+
+RUN npm install --production
+
+COPY . .
+
+RUN npm run build
+
 FROM nginx:alpine
 LABEL authors="Gabriel Santos"
 
-COPY dist /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
+
 
 EXPOSE 80
 
