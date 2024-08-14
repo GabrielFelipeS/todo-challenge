@@ -348,7 +348,7 @@ export const mockTasks: Task[] = [
         user_id: 130,
         title: 'Task 30',
         description: 'Description for Task 30',
-        total_task_time: 90,
+        total_task_time: 9000,
         status: 'pending',
         task_date:  new Date(today.getFullYear(), today.getMonth() + 2, 1),
         due_date:  new Date(today.getFullYear(), today.getMonth() + 2, 1),

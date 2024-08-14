@@ -7,15 +7,15 @@ interface taskDataProps {
 }
 
 const TaskAttribute = styled.div.attrs({
-    className: "flex flex-col items-center"
+    className: "flex flex-col items-center break-word"
 })``;
 
 const Span = styled.span.attrs({
-    className: "text-ligth-highlight dark:text-dark-highlight text-3xl"
+    className: "text-ligth-highlight dark:text-dark-highlight text-xl md:text-3xl"
 })``;
 
-const TaskInfo = styled.div.attrs({
-    className: "text-ligth-secondary dark:text-dark-secondary"
+const TaskInfo = styled.p.attrs({
+    className: "text-ligth-secondary dark:text-dark-secondary text-xs"
 })``;
 
 export function TaskData({time_estipuled, pending_tasks, concluded_tasks}: taskDataProps) {
