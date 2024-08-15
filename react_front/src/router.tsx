@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 
 import ChangeColorPage from "./pages/ChangeColorPageTest";
 import Today from "./pages/Today"
@@ -15,7 +15,6 @@ export function Router() {
   return (
    <BrowserRouter>
      <Routes>
-         <Route path="/" element={<Today/>}/>
          <Route path="/today" element={<Today/>}/>
          <Route path="/tomorrow" element={<Tomorrow/>}/>
          <Route path="/thisweek" element={<ThisWeek/>}/>
@@ -24,6 +23,7 @@ export function Router() {
          <Route path="/concluded" element={<Concluded/>}/>
          <Route path="/tasklist" element={<AllTasks/>}/>
          <Route path="/ChangeColorTest" element={<ChangeColorPage/>}/>
+         <Route path="/" element={<Navigate to={"/today"}/>}/>
      </Routes>
    </BrowserRouter>
   )

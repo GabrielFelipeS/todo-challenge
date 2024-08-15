@@ -3,19 +3,19 @@ import {disapleAllSelectedInUl} from "./AsideBarRoot";
 import {useNavigate} from "react-router-dom";
 
 interface AsideBarProps {
-    endPoints: string[],
+    endPoint: string,
     children: ReactNode
 }
 
-export function AsideBarList({endPoints, children}: AsideBarProps) {
+export function AsideBarList({endPoint, children}: AsideBarProps) {
     const navigate =  useNavigate();
     const currentEndpoint = window.location.pathname;
-    const condition = endPoints.includes(currentEndpoint);
+    const condition = endPoint.includes(currentEndpoint);
 
     function handlerPage(e: React.MouseEvent<HTMLLIElement>) {
         disapleAllSelectedInUl()
         e.currentTarget.classList.add('bg-ligth-selected', 'dark:bg-dark-selected')
-        navigate(endPoints[0]);
+        navigate(endPoint);
     }
 
     return(
