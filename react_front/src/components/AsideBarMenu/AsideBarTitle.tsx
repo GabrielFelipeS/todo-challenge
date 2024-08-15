@@ -5,7 +5,7 @@ interface AsideBarProps {
 export function AsideBarTitle({title}: AsideBarProps) {
     return (
         <div
-            className="col-span-3 max-md:col-span-2
+            className="col-span-2 md:col-span-3
             max-sm:hidden text-ligth-primary dark:text-dark-primary">
             {title}
         </div>
