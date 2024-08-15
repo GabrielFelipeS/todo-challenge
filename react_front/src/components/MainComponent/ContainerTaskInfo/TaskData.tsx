@@ -1,9 +1,12 @@
 import styled from "styled-components";
+import {COMPLETED_TASKS_FILTER} from "../../AsideBarMenu/PredicateFilters.ts";
+import {Task} from "../../../types/Task.ts";
 
 interface taskDataProps {
-    time_estipuled: number
-    pending_tasks: number
-    concluded_tasks: number
+    hours: number
+    minutes: number
+    pendingTasks: Task[]
+    filteredTasks: Task[]
 }
 
 const TaskAttribute = styled.div.attrs({
@@ -18,10 +21,10 @@ const TaskInfo = styled.p.attrs({
     className: "text-ligth-secondary dark:text-dark-secondary text-xs"
 })``;
 
-export function TaskData({time_estipuled, pending_tasks, concluded_tasks}: taskDataProps) {
-    const hours = Math.floor(time_estipuled / 60);
-    const minutes = time_estipuled % 60;
+export function TaskData({hours, minutes, pendingTasks, filteredTasks}: taskDataProps) {
     const containsHours = hours != 0;
+    const concluded_tasks = filteredTasks.filter(COMPLETED_TASKS_FILTER).length
+    const count_pending_tasks = pendingTasks.length;
 
     return(
         <>
@@ -37,7 +40,7 @@ export function TaskData({time_estipuled, pending_tasks, concluded_tasks}: taskD
 
             <TaskAttribute>
                 <TaskInfo>
-                    <Span>{pending_tasks}</Span>
+                    <Span>{count_pending_tasks}</Span>
                 </TaskInfo>
                 <TaskInfo>
                     Tarefas pendentes
