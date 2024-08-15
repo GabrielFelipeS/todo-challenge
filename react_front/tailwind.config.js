@@ -8,8 +8,7 @@ export default {
         'teen': '0.6255rem', // Adiciona um novo tamanho de texto
       },
       screens: {
-        'xs': '300px',
-        'tsm': '500px',
+        'xs': '500px',
       },
       colors: {
         ligth: {

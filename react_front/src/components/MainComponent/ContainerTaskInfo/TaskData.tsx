@@ -9,22 +9,29 @@ interface taskDataProps {
     filteredTasks: Task[]
 }
 
+<div className={"flex-col "}>
+
+</div>
+
+const Container = styled.div.attrs({
+    className: "flex max-sm:flex-row justify-around items-center mt-3 h-[93px] " +
+        "w-full rounded-lg bg-ligth-container dark:bg-dark-container " +
+        "max-xs:flex-col max-xs:h-[160px] "
+       // "max-xs:grid max-xs:grid-rows-2 max-xs:grid-cols-2 max-xs:h-[120px] gap-4 "
+})``;
+
 const TaskAttribute = styled.div.attrs({
     className: "flex flex-col items-center break-word"
 })``;
 
-const Span = styled.span.attrs({
-    className: "text-ligth-highlight dark:text-dark-highlight md:text-3xl tsm:text-xl "
-})``;
-
 const TaskInfo = styled.p.attrs({
-    className: "text-ligth-secondary dark:text-dark-secondary tsm:text-base xs:text-xs"
+    className: `text-ligth-secondary dark:text-dark-secondary xs:text-base`
 })``;
 
-const Container = styled.div.attrs({
-    className: "flex max-sm:flex-row justify-around items-center mt-3 h-[93px] " +
-        "w-full rounded-lg bg-ligth-container dark:bg-dark-container"
+const Span = styled.span.attrs({
+    className: "text-ligth-highlight dark:text-dark-highlight md:text-3xl"
 })``;
+
 
 export function TaskData({hours, minutes, pendingTasks, filteredTasks}: taskDataProps) {
     const containsHours = hours != 0;
@@ -33,7 +40,8 @@ export function TaskData({hours, minutes, pendingTasks, filteredTasks}: taskData
 
     return(
         <Container>
-            <TaskAttribute>
+
+            <TaskAttribute className="col-span-2">
                 <TaskInfo>
                     {containsHours ? <> <Span>{hours}</Span>h </> : ''}
                     <Span>{minutes}</Span>min
