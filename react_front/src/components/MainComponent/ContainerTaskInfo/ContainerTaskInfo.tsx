@@ -27,7 +27,6 @@ export function ContainerTaskInfo({filteredTasks}: ContainerTaskInfoProps) {
                 filteredTasks={filteredTasks}
             />
 
-
             <div className="mt-6">
                 Tarefas - {containsHours ? <> {hours}h </> : ''} {minutes}min
             </div>
