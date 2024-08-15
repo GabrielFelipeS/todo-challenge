@@ -14,11 +14,16 @@ const TaskAttribute = styled.div.attrs({
 })``;
 
 const Span = styled.span.attrs({
-    className: "text-ligth-highlight dark:text-dark-highlight text-xl md:text-3xl"
+    className: "text-ligth-highlight dark:text-dark-highlight md:text-3xl tsm:text-xl "
 })``;
 
 const TaskInfo = styled.p.attrs({
-    className: "text-ligth-secondary dark:text-dark-secondary text-xs"
+    className: "text-ligth-secondary dark:text-dark-secondary tsm:text-base xs:text-xs"
+})``;
+
+const Container = styled.div.attrs({
+    className: "flex max-sm:flex-row justify-around items-center mt-3 h-[93px] " +
+        "w-full rounded-lg bg-ligth-container dark:bg-dark-container"
 })``;
 
 export function TaskData({hours, minutes, pendingTasks, filteredTasks}: taskDataProps) {
@@ -27,7 +32,7 @@ export function TaskData({hours, minutes, pendingTasks, filteredTasks}: taskData
     const count_pending_tasks = pendingTasks.length;
 
     return(
-        <>
+        <Container>
             <TaskAttribute>
                 <TaskInfo>
                     {containsHours ? <> <Span>{hours}</Span>h </> : ''}
@@ -55,6 +60,6 @@ export function TaskData({hours, minutes, pendingTasks, filteredTasks}: taskData
                     Tarefas Concluidas
                 </TaskInfo>
             </TaskAttribute>
-        </>
+        </Container>
     );
 }
