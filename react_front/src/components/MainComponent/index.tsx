@@ -1,7 +1,8 @@
 import {Task} from "../../types/Task.ts";
 import {useContext} from "react";
 import {TaskContext} from "../../context/TaskContext.tsx";
-import {ContainerTaskInfo} from "./ContainerTaskInfo/ContainerTaskInfo";
+import {TaskOverview} from "./TaskOverview/TaskOverview";
+import {TaskList} from "./TaskList/TaskList.tsx";
 
 interface MainComponentProps {
     title: string
@@ -17,11 +18,8 @@ export function MainComponent({title, predicate}: MainComponentProps) {
             <h1 className=" text-ligth-primary dark:text-dark-primary">
                 {title}
             </h1>
-            <ContainerTaskInfo
-                filteredTasks={filteredTasks}
-            />
-
-
+            <TaskOverview filteredTasks={filteredTasks} />
+            <TaskList filteredTasks={filteredTasks}/>
         </div>
     );
 }
