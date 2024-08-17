@@ -2,10 +2,11 @@
 interface AsideBarProps {
     path: string
     alt: string
+    id?: string
 }
 
-export function AsideBarIcon({path, alt} : AsideBarProps) {
+export function AsideBarIcon({path, alt, id} : AsideBarProps) {
     return (
-        <img src={path} alt={alt} className="w-[24px] h-[24px]"/>
+        <img id={id} src={path} alt={alt} className="w-[24px] h-[24px]"/>
     )
 }
