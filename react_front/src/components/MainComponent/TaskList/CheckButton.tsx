@@ -22,14 +22,10 @@ interface CheckButtonProps {
 export function CheckButton({task, isCompleted, setisCompleted}: CheckButtonProps) {
 
     function handlerState(idTask: number) {
-        console.log("Inicio do click "  + idTask)
-        console.log(setisCompleted(state => !state))
-        console.log(task.status)
+        console.log(`id: ${idTask}`)
         task.status = !isCompleted? "completed" : "pending";
         task.task_time_progress = !isCompleted? task.total_task_time : 0
-        console.log(task.task_time_progress)
-        console.log(task.total_task_time)
-        console.log("Fim do click")
+        setisCompleted(state => !state)
     }
 
     function getButtonFor(isCompleted: boolean) {

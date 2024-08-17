@@ -13,7 +13,7 @@ export const mockTasks: Task[] = [
         title: 'Task 1',
         description: 'Description for Task 1',
         task_time_progress: 0,
-        total_task_time: 120,
+        total_task_time: 125,
         status: 'pending',
         task_date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
         due_date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
