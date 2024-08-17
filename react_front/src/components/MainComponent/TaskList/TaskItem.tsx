@@ -21,7 +21,7 @@ export function TaskItem({task}: TaskItemProps) {
         ">
             <div className="flex gap-2 items-center ml-2">
                 <CheckButton task={task} isCompleted={isCompleted} setisCompleted={setIsCompleted}/>
-                <TaskInfo title={task.title} isCompleted={isCompleted} total_time={task.total_task_time}/>
+                <TaskInfo task={task} isCompleted={isCompleted}/>
             </div>
 
             <div className="flex items-center gap-2 mr-2">

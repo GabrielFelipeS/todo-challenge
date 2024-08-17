@@ -28,6 +28,7 @@ function createTask(overrides = {}): Task {
         title: 'Mock Task',
         description: 'Mock task description',
         status: 'pending',
+        task_time_progress: 0,
         total_task_time: 120,
         task_date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
         due_date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),

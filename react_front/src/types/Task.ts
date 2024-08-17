@@ -5,6 +5,7 @@ export type Task = {
     user_id: number
     title: string
     description: string
+    task_time_progress: number
     total_task_time: number
     status: Status
     task_date: Date
