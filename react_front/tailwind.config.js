@@ -26,6 +26,8 @@ export default {
           container: '#FFFFFF',
           selected: '#F5F5F5',
           detail: '#FBFBFB',
+          detailSpan: '#FED4D4',
+
 
           // Bordas
           border: '#51B156',
@@ -46,6 +48,7 @@ export default {
           selected: '#1D1D1D',
 
           detail: '#121012',
+          detailSpan: '#002627',
           // Bordas
           border: '#474236',
         }

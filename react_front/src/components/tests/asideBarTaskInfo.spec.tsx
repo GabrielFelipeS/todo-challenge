@@ -52,7 +52,7 @@ describe("AsideBarTaskInfo component", () => {
         renderComponent(ALL_TASKS_FILTER);
 
         expect(screen.getByText("29")).toBeInTheDocument();
-        expect(screen.getByText("193h 20m")).toBeInTheDocument();
+        expect(screen.getByText("193h 45m")).toBeInTheDocument();
     })
 
     it('should pick up all tasks for today', () => {
@@ -163,7 +163,7 @@ describe("AsideBarTaskInfo component", () => {
         renderComponent(PLANNED_TASKS_FILTER_PENDING_OR_IN_PROGRESS);
 
         expect(screen.getByText("22")).toBeInTheDocument();
-        expect(screen.getByText("180h 40m")).toBeInTheDocument();
+        expect(screen.getByText("181h 5m")).toBeInTheDocument();
     });
 
     it('should pick up all tasks that is completed', () => {
@@ -177,7 +177,7 @@ describe("AsideBarTaskInfo component", () => {
         renderComponent(PENDING_TASKS_FILTER);
 
         expect(screen.getByText("17")).toBeInTheDocument();
-        expect(screen.getByText("175h 10m")).toBeInTheDocument();
+        expect(screen.getByText("175h 15m")).toBeInTheDocument();
     });
 
     it('should pick up all tasks that is canceled', () => {

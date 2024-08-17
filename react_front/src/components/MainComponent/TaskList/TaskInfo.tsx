@@ -7,6 +7,7 @@ interface TaskInfoProps {
 }
 
 export function TaskInfo({task, isCompleted} : TaskInfoProps) {
+    console.log(`id: ${task.id}`)
     return (
         <div>
             <div className={`${

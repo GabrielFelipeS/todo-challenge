@@ -12,9 +12,6 @@ export function TaskItem({task}: TaskItemProps) {
     const [isCompleted, setIsCompleted] =
         useState<boolean>(task.status === "completed")
 
-    console.log(isCompleted)
-    console.log(task.status)
-
     return (
         <div className="bg-ligth-container dark:bg-dark-container h-[64px] rounded-lg
         flex flex-row justify-between
