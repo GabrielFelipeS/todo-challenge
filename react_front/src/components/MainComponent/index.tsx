@@ -16,7 +16,7 @@ export function MainComponent({title, predicate, FILTER_TO_VISUALIZATION = PENDI
     const filteredTasks = tasks.filter(predicate);
 
     return (
-        <div className="mt-12 ml-5 w-3/4 ">
+        <div className="mt-12 ml-5 md:w-[95%] md:pl-72 max-md:pl-40 max-md:w-11/12 max-sm:pl-10">
             <h1 className=" text-ligth-primary dark:text-dark-primary">
                 {title}
             </h1>

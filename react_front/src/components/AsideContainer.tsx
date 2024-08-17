@@ -3,7 +3,8 @@ import 'tailwindcss/tailwind.css';
 import {AsideBarMenu} from "./AsideBarMenu";
 
 const Aside = styled.aside.attrs( {
-   className: 'w-[275px] max-md:w-[165px] max-md:pr-2 max-sm:w-12 max-sm:p-0 h-dvh bg-ligth-container dark:bg-dark-container'
+   className: 'fixed w-[275px] max-md:w-[165px] max-md:pr-2 max-sm:w-12 ' +
+               'max-sm:p-0 h-dvh bg-ligth-container dark:bg-dark-container'
 })``;
 
 const Container = styled.div.attrs({
@@ -11,9 +12,6 @@ const Container = styled.div.attrs({
 })``;
 
 export  function AsideContainer() {
-    // const tasks = useContext(TaskContext)?.tasks
-    // tasks?.forEach(task => console.log(task))
-
     return (
        <Aside>
            <Container>
