@@ -35,7 +35,6 @@
     "styled-components": "^6.1.12",
     "tailwindcss": "^3.4.7",
     "ts-node": "^10.9.2",
-    "twin.macro": "^3.4.1",
     "typescript": "^5.2.2",
     "vite": "^5.3.4"
   }

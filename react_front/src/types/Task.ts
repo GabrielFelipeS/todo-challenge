@@ -1,4 +1,4 @@
-type Status = 'pending' | 'in_progress' | 'completed' | 'canceled';
+export type Status = 'pending' | 'in_progress' | 'completed' | 'canceled';
 
 export type Task = {
     id: number

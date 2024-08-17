@@ -6,13 +6,14 @@ interface ContainerTaskInfoProps {
 }
 
 export function TaskList({filteredTasks}: ContainerTaskInfoProps) {
+    console.log("sim")
     return (
-        <div className="flex flex-col gap-5 mt-9">
-            {filteredTasks.map(task => {
+        <main className="flex flex-col gap-5 mt-9">
+            {filteredTasks.map((task, index) => {
                return (
-                  <TaskItem task={task}/>
+                  <TaskItem task={task} key={index} />
                )
             })}
-        </div>
+        </main>
     )
 }
