@@ -1,0 +1,44 @@
+FROM php:8.2-fpm
+
+# Instalar dependências do sistema e PHP
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    libzip-dev \
+    zip \
+    unzip \
+    git \
+    curl \
+    nginx \
+    && docker-php-ext-install pdo pdo_pgsql zip \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Instalar Node.js e npm
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs
+
+WORKDIR /var/www/html
+
+COPY . /var/www/html
+
+# Instalar Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Instalar dependências do PHP
+RUN composer install
+
+# Instalar dependências do Node.js
+RUN npm install
+
+# Definir permissões seguras
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 777 /var/www/html
+
+# Copiar configuração do Nginx
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expor as portas necessárias
+EXPOSE 9000
+EXPOSE 8000
+
+# Comando para iniciar o PHP-FPM e Nginx
+CMD php-fpm
