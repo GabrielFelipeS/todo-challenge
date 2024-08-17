@@ -1,10 +1,11 @@
-type Status = 'pending' | 'in_progress' | 'completed' | 'canceled';
+export type Status = 'pending' | 'in_progress' | 'completed' | 'canceled';
 
 export type Task = {
     id: number
     user_id: number
     title: string
     description: string
+    task_time_progress: number
     total_task_time: number
     status: Status
     task_date: Date

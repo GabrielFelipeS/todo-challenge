@@ -1,14 +1,17 @@
 import {Task} from "../../types/Task.ts";
 import {useContext} from "react";
 import {TaskContext} from "../../context/TaskContext.tsx";
-import {ContainerTaskInfo} from "./ContainerTaskInfo/ContainerTaskInfo";
+import {TaskOverview} from "./TaskOverview/TaskOverview";
+import {TaskList} from "./TaskList/TaskList.tsx";
+import {PENDING_OR_IN_PROGRESS} from "../PredicateFilters.ts";
 
 interface MainComponentProps {
     title: string
     predicate: (task: Task) => boolean
+    FILTER_TO_VISUALIZATION?: (task: Task) => boolean
 }
 
-export function MainComponent({title, predicate}: MainComponentProps) {
+export function MainComponent({title, predicate, FILTER_TO_VISUALIZATION = PENDING_OR_IN_PROGRESS}: MainComponentProps) {
     const tasks = useContext(TaskContext)?.tasks ?? []
     const filteredTasks = tasks.filter(predicate);
 
@@ -17,11 +20,8 @@ export function MainComponent({title, predicate}: MainComponentProps) {
             <h1 className=" text-ligth-primary dark:text-dark-primary">
                 {title}
             </h1>
-            <ContainerTaskInfo
-                filteredTasks={filteredTasks}
-            />
-
-
+            <TaskOverview filteredTasks={filteredTasks} />
+            <TaskList filteredTasks={filteredTasks} filterToVisualization={FILTER_TO_VISUALIZATION}/>
         </div>
     );
 }

@@ -20,7 +20,7 @@ import {
     THIS_WEEK_TASKS_FILTER_PENDING_OR_IN_PROGRESS,
     TODAY_TASKS_FILTER_PENDING_OR_IN_PROGRESS,
     TOMORROW_TASKS_FILTER_PENDING_OR_IN_PROGRESS
-} from "./PredicateFilters";
+} from "../PredicateFilters.ts";
 
 export const AsideBarMenuToday = () => {
     return (
