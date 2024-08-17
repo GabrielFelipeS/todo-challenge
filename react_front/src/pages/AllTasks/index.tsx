@@ -1,5 +1,5 @@
 import {AsideContainer} from "../../components/AsideContainer.tsx";
-import {ALL_TASKS_FILTER} from "../../components/AsideBarMenu/PredicateFilters.ts";
+import {ALL_TASKS_FILTER} from "../../components/PredicateFilters.ts";
 import {MainComponent} from "../../components/MainComponent";
 
 export default function AllTasks() {

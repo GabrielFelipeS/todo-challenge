@@ -1,6 +1,6 @@
 import {TaskData} from "./TaskData.tsx";
 import {Task} from "../../../types/Task.ts";
-import {PENDING_OR_IN_PROGRESS} from "../../AsideBarMenu/PredicateFilters.ts";
+import {PENDING_OR_IN_PROGRESS} from "../../PredicateFilters.ts";
 
 
 interface ContainerTaskInfoProps {

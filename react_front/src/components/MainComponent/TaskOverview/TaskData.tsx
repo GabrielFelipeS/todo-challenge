@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {COMPLETED_TASKS_FILTER} from "../../AsideBarMenu/PredicateFilters.ts";
+import {COMPLETED_TASKS_FILTER} from "../../PredicateFilters.ts";
 import {Task} from "../../../types/Task.ts";
 
 interface taskDataProps {

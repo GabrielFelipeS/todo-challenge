@@ -3,13 +3,15 @@ import {TaskItem} from "./TaskItem.tsx";
 
 interface ContainerTaskInfoProps {
     filteredTasks: Task[]
+    filterToVisualization: (task: Task) => boolean
 }
 
-export function TaskList({filteredTasks}: ContainerTaskInfoProps) {
-    console.log("sim")
+export function TaskList({filteredTasks, filterToVisualization}: ContainerTaskInfoProps) {
+    const pendingAndInProgressiveTasks = filteredTasks.filter(filterToVisualization);
+
     return (
         <main className="flex flex-col gap-5 mt-9">
-            {filteredTasks.map((task, index) => {
+            {pendingAndInProgressiveTasks.map((task, index) => {
                return (
                   <TaskItem task={task} key={index} />
                )

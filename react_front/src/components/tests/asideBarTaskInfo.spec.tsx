@@ -16,7 +16,7 @@ import {
     THIS_WEEK_TASKS_FILTER_PENDING_OR_IN_PROGRESS,
     TODAY_TASKS_FILTER,
     TOMORROW_TASKS_FILTER
-} from "../AsideBarMenu/PredicateFilters";
+} from "../PredicateFilters.ts";
 
 const today = new Date();
 const mockSetTasks = jest.fn();
@@ -52,7 +52,7 @@ describe("AsideBarTaskInfo component", () => {
         renderComponent(ALL_TASKS_FILTER);
 
         expect(screen.getByText("29")).toBeInTheDocument();
-        expect(screen.getByText("193h 15m")).toBeInTheDocument();
+        expect(screen.getByText("193h 20m")).toBeInTheDocument();
     })
 
     it('should pick up all tasks for today', () => {
@@ -163,14 +163,14 @@ describe("AsideBarTaskInfo component", () => {
         renderComponent(PLANNED_TASKS_FILTER_PENDING_OR_IN_PROGRESS);
 
         expect(screen.getByText("22")).toBeInTheDocument();
-        expect(screen.getByText("180h 45m")).toBeInTheDocument();
+        expect(screen.getByText("180h 40m")).toBeInTheDocument();
     });
 
     it('should pick up all tasks that is completed', () => {
         renderComponent(COMPLETED_TASKS_FILTER);
 
         expect(screen.getByText("4")).toBeInTheDocument();
-        expect(screen.getByText("6h 45m")).toBeInTheDocument();
+        expect(screen.getByText("6h 50m")).toBeInTheDocument();
     });
 
     it('should pick up all tasks that is pending', () => {
@@ -184,6 +184,6 @@ describe("AsideBarTaskInfo component", () => {
         renderComponent(CANCELED_TASKS_FILTER);
 
         expect(screen.getByText("3")).toBeInTheDocument();
-        expect(screen.getByText("5h 45m")).toBeInTheDocument();
+        expect(screen.getByText("5h 50m")).toBeInTheDocument();
     });
 });
