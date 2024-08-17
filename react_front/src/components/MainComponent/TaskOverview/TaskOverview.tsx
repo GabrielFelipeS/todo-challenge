@@ -11,7 +11,7 @@ export function TaskOverview({filteredTasks}: ContainerTaskInfoProps) {
     const pendingTasks = filteredTasks.filter(PENDING_OR_IN_PROGRESS);
 
     const time_estipuled = pendingTasks
-        .map((task: Task) => task.total_task_time)
+        .map((task: Task) => task.pomodoro_value * task.total_pomodori)
         .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
     const hours = Math.floor(time_estipuled / 60);

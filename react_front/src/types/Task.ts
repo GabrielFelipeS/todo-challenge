@@ -5,8 +5,9 @@ export type Task = {
     user_id: number
     title: string
     description: string
-    task_time_progress: number
-    total_task_time: number
+    completed_pomodori: number
+    total_pomodori: number
+    pomodoro_value: number
     status: Status
     task_date: Date
     due_date: Date
