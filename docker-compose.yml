@@ -1,6 +1,6 @@
 services:
   front:
-    build: 
+    build:
       context: ./react_front/
     container_name: react_front
     ports:
@@ -11,3 +11,48 @@ services:
       timeout: 30s
       retries: 5
       start_period: 30s
+  
+  db:
+    image: postgres:13
+    container_name: laravel_pgsql
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - laravel_network
+  
+  php-fpm:
+    container_name: php-fpm
+    build:
+      context: ./Laravel-API
+      dockerfile: Dockerfile-fpm
+    networks:
+      - laravel_network
+    ports:
+      - "9000:9000"
+    depends_on:
+      - db
+    
+  back:
+    container_name: laravel-api
+    build:
+      context: ./Laravel-API
+      dockerfile: Dockerfile-nginx
+    networks:
+      - laravel_network
+    volumes:
+      - ./Laravel-API:/var/www/html
+    depends_on:
+      - php-fpm
+    ports:
+      - "8000:80"
+
+volumes:
+  pgdata:
+
+networks:
+  laravel_network:
+    driver: bridge
