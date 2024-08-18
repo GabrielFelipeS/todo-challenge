@@ -25,7 +25,7 @@ function generateLimitedProgressBar (pomodoros_quantities: number, time_remainin
         <span className="mr-0.5 text-ligth-highlight dark:text-dark-highlight">
             {pomodoros_quantities}
         </span>
-        <span className="text-dark-primary dark:text-dark-accent"> / </span>
+        <span className="text-ligth-highlight dark:text-dark-accent"> / </span>
         <TimerNotConcluded/>
         <span className="mr-0.5 text-ligth-detailSpan dark:text-dark-detailSpan">
             { time_remaining}
