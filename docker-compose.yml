@@ -31,6 +31,7 @@ services:
       dockerfile: Dockerfile-fpm
     networks:
       - laravel_network
+    env_file: ".env"
     ports:
       - "9000:9000"
     depends_on:
@@ -41,14 +42,17 @@ services:
     build:
       context: ./Laravel-API
       dockerfile: Dockerfile-nginx
+ 
     networks:
       - laravel_network
     volumes:
       - ./Laravel-API:/var/www/html
     depends_on:
       - php-fpm
+      - db
     ports:
       - "8000:80"
+
 
 volumes:
   pgdata:

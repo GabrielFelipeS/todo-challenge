@@ -24,7 +24,7 @@ export function CheckButton({task, isCompleted, setisCompleted}: CheckButtonProp
     function handlerState(idTask: number) {
         console.log(`id: ${idTask}`)
         task.status = !isCompleted? "completed" : "pending";
-        task.task_time_progress = !isCompleted? task.total_task_time : 0
+        task.completed_pomodori = !isCompleted? task.total_pomodori : 0
         setisCompleted(state => !state)
     }
 

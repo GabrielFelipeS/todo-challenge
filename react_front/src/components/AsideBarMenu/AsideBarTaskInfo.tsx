@@ -11,7 +11,7 @@ export function AsideBarTaskInfo({predicate}: AsideBarProps) {
     const filteredTasks = tasks.filter(predicate)
 
     const totalTime =
-        filteredTasks.map(task => task.total_task_time)
+        filteredTasks.map(task => task.pomodoro_value * task.total_pomodori)
         .reduce(
             (accumulator, currentValue) => accumulator + currentValue, 0);
 

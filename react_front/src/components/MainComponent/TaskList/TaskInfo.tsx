@@ -18,7 +18,7 @@ export function TaskInfo({task, isCompleted} : TaskInfoProps) {
                 {task.title}
             </div>
             <div className="flex flex-row">
-                <TaskProgress progress_time={task.task_time_progress} total_time={task.total_task_time}/>
+                <TaskProgress completed_pomodori={task.completed_pomodori} total_pomodori={task.total_pomodori}/>
             </div>
         </div>
     );

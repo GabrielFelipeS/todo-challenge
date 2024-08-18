@@ -28,8 +28,9 @@ function createTask(overrides = {}): Task {
         title: 'Mock Task',
         description: 'Mock task description',
         status: 'pending',
-        task_time_progress: 0,
-        total_task_time: 120,
+        completed_pomodori: 0,
+        total_pomodori: 4,
+        pomodoro_value: 25,
         task_date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
         due_date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
         assigned_at: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
@@ -52,7 +53,7 @@ describe("AsideBarTaskInfo component", () => {
         renderComponent(ALL_TASKS_FILTER);
 
         expect(screen.getByText("29")).toBeInTheDocument();
-        expect(screen.getByText("193h 45m")).toBeInTheDocument();
+        expect(screen.getByText("190h 50m")).toBeInTheDocument();
     })
 
     it('should pick up all tasks for today', () => {
@@ -75,7 +76,7 @@ describe("AsideBarTaskInfo component", () => {
         ]);
 
         expect(screen.getByText("1")).toBeInTheDocument();
-        expect(screen.getByText("2h 0m")).toBeInTheDocument();
+        expect(screen.getByText("1h 40m")).toBeInTheDocument();
     });
 
     it('should pick up all tasks for tomorrow', () => {
@@ -102,7 +103,7 @@ describe("AsideBarTaskInfo component", () => {
         ]);
 
         expect(screen.getByText("1")).toBeInTheDocument();
-        expect(screen.getByText("2h 0m")).toBeInTheDocument();
+        expect(screen.getByText("1h 40m")).toBeInTheDocument();
     });
 
     it('should only pick up the tasks for this week', () => {
@@ -129,7 +130,7 @@ describe("AsideBarTaskInfo component", () => {
         ])
 
         expect(screen.getByText("2")).toBeInTheDocument();
-        expect(screen.getByText("4h 0m")).toBeInTheDocument();
+        expect(screen.getByText("3h 20m")).toBeInTheDocument();
     });
 
     it('should only pick up the tasks for the next seven days', () => {
@@ -156,34 +157,34 @@ describe("AsideBarTaskInfo component", () => {
         ])
 
         expect(screen.getByText("2")).toBeInTheDocument();
-        expect(screen.getByText("4h 0m")).toBeInTheDocument();
+        expect(screen.getByText("3h 20m")).toBeInTheDocument();
     });
 
     it('should pick up all tasks that is planned', () => {
         renderComponent(PLANNED_TASKS_FILTER_PENDING_OR_IN_PROGRESS);
 
         expect(screen.getByText("22")).toBeInTheDocument();
-        expect(screen.getByText("181h 5m")).toBeInTheDocument();
+        expect(screen.getByText("178h 20m")).toBeInTheDocument();
     });
 
     it('should pick up all tasks that is completed', () => {
         renderComponent(COMPLETED_TASKS_FILTER);
 
         expect(screen.getByText("4")).toBeInTheDocument();
-        expect(screen.getByText("6h 50m")).toBeInTheDocument();
+        expect(screen.getByText("7h 5m")).toBeInTheDocument();
     });
 
     it('should pick up all tasks that is pending', () => {
         renderComponent(PENDING_TASKS_FILTER);
 
         expect(screen.getByText("17")).toBeInTheDocument();
-        expect(screen.getByText("175h 15m")).toBeInTheDocument();
+        expect(screen.getByText("173h 20m")).toBeInTheDocument();
     });
 
     it('should pick up all tasks that is canceled', () => {
         renderComponent(CANCELED_TASKS_FILTER);
 
         expect(screen.getByText("3")).toBeInTheDocument();
-        expect(screen.getByText("5h 50m")).toBeInTheDocument();
+        expect(screen.getByText("5h 25m")).toBeInTheDocument();
     });
 });
