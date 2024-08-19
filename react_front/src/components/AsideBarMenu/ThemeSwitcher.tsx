@@ -5,8 +5,10 @@ import {AsideBarTitle} from "./AsideBarTitle.tsx";
 import {useState} from "react";
 
 export function ThemeSwitcher() {
-    const [alterThemeImg, setAlterThemeImg] = useState(ligthModeIcon)
     const theme =  document.getElementById("theme")?.classList
+
+    const isDarkMode = theme?.contains("dark")
+    const [alterThemeImg, setAlterThemeImg] = useState(isDarkMode? darkModeIcon:  ligthModeIcon)
 
     function handlerTheme() {
         theme?.toggle("dark")
