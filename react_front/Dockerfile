@@ -4,13 +4,13 @@ WORKDIR /app
 
 COPY ./package*.json ./
 
-RUN npm install --production
+RUN npm ci
 
 COPY . .
 
 RUN npm run build
 
-FROM nginx:alpine
+FROM nginx:stable-alpine
 LABEL authors="Gabriel Santos"
 
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
